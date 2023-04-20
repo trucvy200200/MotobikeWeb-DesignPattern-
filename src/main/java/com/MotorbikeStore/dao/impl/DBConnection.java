@@ -20,7 +20,7 @@ import java.sql.Types;
 public class DBConnection {
 
     private static DBConnection instance = null;
-    public static Connection connect;
+    private static Connection connect;
 
     private DBConnection() {
         // private constructor to prevent direct instantiation
