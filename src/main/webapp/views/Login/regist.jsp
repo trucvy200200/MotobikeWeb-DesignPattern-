@@ -87,8 +87,6 @@
 				</div>
 			</div>
 		</section>
-
-
 	</div>
 	<!-- JS -->
 	<script src="template/web/registPage/vendor/jquery/jquery.min.js"></script>
@@ -114,10 +112,6 @@
 		{
 			swal("Information","Password Doesn't Match","error");
 		}
-
 	</script>
-
-
 </body>
-
 </html>

@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
-<c:url var="addCart" value="/addCart" />
-<c:url var="login" value="/login" />
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -156,7 +155,7 @@
 	<div class="row px-xl-5">
 
 
-		<c:forEach var="item" items="${modelFeature.listResult}">
+		<c:forEach var="item" items="${model.listResult}">
 
 
 
@@ -170,12 +169,12 @@
 						<div class="product-action">
 							
 							
-							<a class="btn btn-outline-dark btn-square btnaddCart" id ="${item.aMotorId}"  href=""><i
+							<a class="btn btn-outline-dark btn-square" id ="${item.aMotorId}"  href="addCart?id=${item.aMotorId}&idpage=0"><i
 								class="fa fa-shopping-cart"></i></a>
 								
 								
 								 <a
-								class="btn btn-outline-dark btn-square" href="addFavoriteProduct?id=${item.aMotorId}&idpage=0"><i
+								class="btn btn-outline-dark btn-square" href=""><i
 								class="far fa-heart"></i></a>  <a
 								class="btn btn-outline-dark btn-square"
 								href="notaddshopDetail?id=${item.aMotorId}"><i
@@ -183,7 +182,7 @@
 						</div>
 					</div>
 					<div class="text-center py-4">
-						<a class="h6 text-decoration-none text-truncate" >${item.motors_Name}</a>
+						<a class="h6 text-decoration-none text-truncate" href="">${item.motors_Name}</a>
 						<div class="d-flex align-items-center justify-content-center mt-2">
 							<h5>$ ${item.price}</h5>
 							<h6 class="text-muted ml-2">
@@ -263,11 +262,11 @@
 						<div class="product-action">
 							
 							
-							<a class="btn btn-outline-dark btn-square btnaddCart" id ="${item.aMotorId}" href=""><i
+							<a class="btn btn-outline-dark btn-square" id ="${item.aMotorId}" href="addCart?id=${item.aMotorId}&idpage=0"><i
 								class="fa fa-shopping-cart"></i></a>
 								
 								 <a
-								class="btn btn-outline-dark btn-square" href="addFavoriteProduct?id=${item.aMotorId}&idpage=0"><i
+								class="btn btn-outline-dark btn-square" href=""><i
 								class="far fa-heart"></i></a>  <a
 								class="btn btn-outline-dark btn-square"
 								href="notaddshopDetail?id=${item.aMotorId}"><i
@@ -275,7 +274,7 @@
 						</div>
 					</div>
 					<div class="text-center py-4">
-						<a class="h6 text-decoration-none text-truncate" >${item.motors_Name}</a>
+						<a class="h6 text-decoration-none text-truncate" href="">${item.motors_Name}</a>
 						<div class="d-flex align-items-center justify-content-center mt-2">
 							<h5>$ ${item.price}</h5>
 							<h6 class="text-muted ml-2">
@@ -341,46 +340,6 @@
 	</div>
 </div>
 <!-- Vendor End -->
-
-
-
-
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script >
-$(".btnaddCart").click(function(e) {
-	
-	var idpage = 0;
-	var userId =
-<%=session.getAttribute("userId")%>
-;
-	var aMotorId = $(this).attr("id");
-	$.ajax({
-		type : "POST",
-		url : '${addCart}',
-		data : {
-			idpage : idpage,
-			userId : userId,
-			aMotorId : aMotorId
-		},
-		success : function(data) {
-			window.location.href = "${login}";
-		},
-		error : function(result) {
-			alert('error');
-
-		}
-	});
-	
-	
-
-});
-
-
-
-</script>
-
-
 
 <script type="text/javascript">
         function refresh() {

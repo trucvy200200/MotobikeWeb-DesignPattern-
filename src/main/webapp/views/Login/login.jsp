@@ -90,7 +90,6 @@
 			swal("Information","Wrong password or email","error");
 		}
 		
-
 	</script>
 
 </body>
